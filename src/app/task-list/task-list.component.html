@@ -1,4 +1,4 @@
-<h2>Task List</h2>
+<!-- <h2>Task List</h2>
 <app-task-form [task]="editingTask" (updated)="loadTasks(); clearEdit()"></app-task-form>
 
 <table border="1">
@@ -16,4 +16,27 @@
       <button (click)="deleteTask(task.id!)">Delete</button>
     </td>
   </tr>
+</table> -->
+
+<app-task-form [task]="editingTask" (updated)="loadTasks(); clearEdit()"></app-task-form>
+
+<table class="task-table">
+  <thead>
+    <tr>
+      <th>ID</th><th>Name</th><th>Description</th><th>Status</th><th>Priority</th><th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{task.id}}</td>
+      <td>{{task.name}}</td>
+      <td>{{task.description}}</td>
+      <td>{{task.status}}</td>
+      <td>{{task.priority}}</td>
+      <td>
+        <button class="btn" (click)="editTask(task)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteTask(task.id!)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
