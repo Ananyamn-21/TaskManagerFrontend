@@ -1,0 +1,8 @@
+<h3>{{ task?.id ? 'Edit Task' : 'Add Task' }}</h3>
+<form (ngSubmit)="submitForm()">
+  <input type="text" placeholder="Name" [(ngModel)]="taskData.name" name="name" required />
+  <input type="text" placeholder="Description" [(ngModel)]="taskData.description" name="description" required />
+  <input type="text" placeholder="Status" [(ngModel)]="taskData.status" name="status" required />
+  <input type="number" placeholder="Priority" [(ngModel)]="taskData.priority" name="priority" required />
+  <button type="submit">{{ task?.id ? 'Update' : 'Add' }}</button>
+</form>
